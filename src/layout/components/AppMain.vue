@@ -1,5 +1,5 @@
 <template>
-  <div class="appMain-container animate__animated animate__backInDown">appMain</div>
+  <div class="appMain-container animate__animated animate__zoomIn">appMain</div>
 </template>
 
 <script setup>

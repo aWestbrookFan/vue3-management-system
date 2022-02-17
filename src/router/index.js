@@ -23,7 +23,7 @@ const routes = [
         meta: {
           title: '系统首页'
         },
-        component: () => import('@/views/subViews/dashboard.vue')
+        component: () => import('@/views/subViews/Dashboard.vue')
       }
     ]
   }

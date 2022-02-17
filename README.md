@@ -1,4 +1,4 @@
-# Vue 3 + Vite + mockJs + elementPlus + pinia （javaScript）
+# Vue3+Vite+elementPlus+mockJs+pinia （javaScript）
 
 ## 可以作为一些vue3学习的测试、简单的demo
 ## 做了一些保存自动化的操作、更方便开发

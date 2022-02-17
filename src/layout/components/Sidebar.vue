@@ -170,7 +170,7 @@ const collapse = ref(true)
   .manage-menu {
     .sidebar-el-menu {
       --el-menu-hover-custom-bg-color: #012344;
-      ::v-deep .el-menu-item:hover {
+      :deep(.el-menu-item:hover)  {
         background-color: var(--el-menu-hover-custom-bg-color);
       }
     }

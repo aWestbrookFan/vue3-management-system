@@ -22,7 +22,7 @@
           <FlowTrend></FlowTrend>
         </el-tab-pane>
         <el-tab-pane label="访问量" name="visits">
-          <Visits></Visits>
+          <Visits v-if="activeName === 'visits'"></Visits>
         </el-tab-pane>
       </el-tabs>
     </div>

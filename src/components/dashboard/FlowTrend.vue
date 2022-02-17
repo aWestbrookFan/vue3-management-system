@@ -1,19 +1,23 @@
 <template>
- <div class="flowTrend-container"  ref="chartRef">
-   flowTrend
-   <div class="test" ref="testRef"></div>
- </div>
+ <div class="flowTrend-container"></div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-const chartRef = ref()
-console.log(chartRef)
+import { onMounted, nextTick } from 'vue'
+import * as echarts from 'echarts'
+import { flowTrendOption } from './option'
+const initChart = () => {
+  const chart = echarts.init(document.querySelector('.flowTrend-container'))
+  chart.setOption(flowTrendOption)
+}
+onMounted(async () => {
+  await nextTick
+  initChart()
+})
 </script>
 
 <style lang="scss" scoped>
-.flowTrend-containe{
+.flowTrend-container{
   width: 100%;
   height: 280px;
 }

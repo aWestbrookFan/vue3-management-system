@@ -11,13 +11,22 @@ const routes = [
     path: '/Login',
     component: () => import('@/views/Login.vue'),
     meta: { title: '登录', icon: 'el-icon-s-home' }
+  },
+  {
+    path: '/Home',
+    name: 'Home',
+    component: Layout,
+    children: [
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        meta: {
+          title: '系统首页'
+        },
+        component: () => import('@/views/subViews/dashboard.vue')
+      }
+    ]
   }
-  // {
-  //   path: '/Home',
-  //   name: 'Home',
-  //   component: () => import('@/views/Home.vue'),
-  //   meta: { title: '主页面', icon: 'el-icon-s-home' }
-  // }
 ]
 
 const router = createRouter({

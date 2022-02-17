@@ -5,6 +5,7 @@ const routes = [
   {
     path: '/',
     component: Layout,
+    redirect: 'dashboard',
     meta: { title: '主页面', icon: 'el-icon-s-home' }
   },
   {

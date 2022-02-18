@@ -8,6 +8,9 @@ module.exports = {
     parser: 'babel-eslint'
   },
   rules: {
+    quotes: 2,
+    semi: 1,
+    'no-console': 1,
     'arrow-parens': 0,
     'generator-star-spacing': 0,
     indent: ['error', 2],

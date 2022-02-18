@@ -14,13 +14,12 @@
 import AppMain from './components/AppMain.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
-import { useStore } from '@/store'
-const store = useStore()
-console.log(store.name)
+// import { useStore } from '@/store'
+// const store = useStore()
 </script>
 
 <style lang="scss" scoped>
-.app-container{
+.app-container {
   position: relative;
   height: 100%;
   width: 100%;

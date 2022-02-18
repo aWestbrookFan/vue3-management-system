@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-container animate__animated animate__backInLeft">
+  <div class="sidebar animate__animated animate__backInLeft">
     <div class="manage-logo" @click="handleChangeIscollapse">
       <img src="@/assets/logo.png" />
       <h3 v-if="!isCollapse">&emsp;ls管理系统&emsp;</h3>
@@ -146,7 +146,7 @@ const handleChangeIscollapse = () => {
 </script>
 
 <style lang="scss" scoped>
-.sidebar-container {
+.sidebar {
   position: relative;
   > ul {
     height: 100%;
@@ -169,7 +169,6 @@ const handleChangeIscollapse = () => {
     }
   }
   .sidebar-el-menu {
-    transition: all 0.2s ease-in;
     --el-menu-hover-custom-bg-color: #012344;
     :deep(.el-menu-item:hover) {
       background-color: var(--el-menu-hover-custom-bg-color);

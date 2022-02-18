@@ -1,14 +1,15 @@
 <template>
   <div class="sidebar-container animate__animated animate__backInLeft">
-    <div class="manage-logo">
+    <div class="manage-logo" @click="handleChangeIscollapse">
       <img src="@/assets/logo.png" />
-      <h3>laoshen管理系统</h3>
+      <h3 v-if="!isCollapse">&emsp;ls管理系统&emsp;</h3>
     </div>
     <div class="manage-menu">
       <el-menu
         class="sidebar-el-menu"
         :default-active="onRoutes"
         background-color="#red"
+        :collapse="isCollapse"
         text-color="#bfcbd9"
         active-text-color="#20a0ff"
         unique-opened
@@ -44,8 +45,7 @@
           </template>
           <template v-else>
             <el-menu-item :index="item.index" :key="item.index">
-              <!-- <i :class="item.icon"></i> -->
-              <iconfont icon-name="icon-jishufuwu"></iconfont>
+              <iconfont icon-name="icon-jishufuwu" ></iconfont>
               <template #title>{{ item.title }}</template>
             </el-menu-item>
           </template>
@@ -144,11 +144,19 @@ const onRoutes = computed(() => {
   return route.path
 })
 
-const collapse = ref(true)
+const isCollapse = ref(false)
+
+const handleChangeIscollapse = () => {
+  isCollapse.value = !isCollapse.value
+}
 </script>
 
 <style lang="scss" scoped>
 .sidebar-container {
+
+  > ul {
+    height: 100%;
+  }
   .manage-logo {
     height: 50px;
     color: white;
@@ -158,23 +166,26 @@ const collapse = ref(true)
     line-height: 50px;
     overflow: hidden;
     white-space: nowrap;
-    // padding: 0 50px;
-    // box-sizing: border-box;
 
     img {
       border-radius: 4px;
       width: auto;
       height: 32px;
-      margin-right: 10px;
+      // margin-right: 10px;
     }
   }
   .manage-menu {
+    width: auto;
     .sidebar-el-menu {
       --el-menu-hover-custom-bg-color: #012344;
       :deep(.el-menu-item:hover) {
         background-color: var(--el-menu-hover-custom-bg-color);
       }
     }
+  }
+
+  .sidebar-el-menu:not(.el-menu--collapse) {
+    width: 200px;
   }
 }
 </style>

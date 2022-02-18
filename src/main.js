@@ -8,6 +8,9 @@ import '@/style/global.scss'
 import 'animate.css'
 // 使用 pinia
 import { createPinia } from 'pinia'
+// 使用event-bus vue3不支持
+import eventBus from 'vue3-eventbus'
+
 import router from '@/router'
 
-createApp(App).use(createPinia()).use(ElementPlus).use(router).mount('#app')
+createApp(App).use(createPinia()).use(eventBus).use(ElementPlus).use(router).mount('#app')

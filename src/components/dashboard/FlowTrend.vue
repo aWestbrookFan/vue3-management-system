@@ -6,8 +6,9 @@
 import { onMounted, nextTick } from 'vue'
 import * as echarts from 'echarts'
 import { flowTrendOption } from './option'
+let chart = null
 const initChart = () => {
-  const chart = echarts.init(document.querySelector('.flowTrend-container'))
+  chart = echarts.init(document.querySelector('.flowTrend-container'))
   chart.setOption(flowTrendOption)
 }
 onMounted(async () => {

@@ -1,9 +1,9 @@
 <template>
-  <div class="iconfont-container">
+  <i class="el-icon iconfont-container">
     <svg class="icon" aria-hidden="true" :style="{ color: iconColor }">
       <use :xlink:href="'#' + iconName"></use>
     </svg>
-  </div>
+  </i>
 </template>
 
 <script setup>
@@ -22,8 +22,6 @@ defineProps({
 
 <style lang="scss" scoped>
 .iconfont-container {
-  line-height: 1;
-  margin-right: 1.5em;
   .icon {
     width: 1.4em;
     height: 1.4em;

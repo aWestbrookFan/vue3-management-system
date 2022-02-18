@@ -2,7 +2,7 @@
   <div class="sidebar-container animate__animated animate__backInLeft">
     <div class="manage-logo">
       <img src="@/assets/logo.png" />
-      <h3>ls管理系统</h3>
+      <h3>laoshen管理系统</h3>
     </div>
     <div class="manage-menu">
       <el-menu
@@ -44,7 +44,8 @@
           </template>
           <template v-else>
             <el-menu-item :index="item.index" :key="item.index">
-              <i :class="item.icon"></i>
+              <!-- <i :class="item.icon"></i> -->
+              <iconfont icon-name="icon-jishufuwu"></iconfont>
               <template #title>{{ item.title }}</template>
             </el-menu-item>
           </template>
@@ -56,8 +57,8 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-// import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
+import iconfont from '@/components/iconfont/index.vue'
 
 const items = [
   {
@@ -170,7 +171,7 @@ const collapse = ref(true)
   .manage-menu {
     .sidebar-el-menu {
       --el-menu-hover-custom-bg-color: #012344;
-      :deep(.el-menu-item:hover)  {
+      :deep(.el-menu-item:hover) {
         background-color: var(--el-menu-hover-custom-bg-color);
       }
     }

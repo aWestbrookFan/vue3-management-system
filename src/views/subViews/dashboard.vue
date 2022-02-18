@@ -33,9 +33,7 @@
 import { ref } from 'vue'
 import FlowTrend from '@/components/dashboard/FlowTrend.vue'
 import Visits from '@/components/dashboard/Visits.vue'
-
 const activeName = ref('flowTrend')
-
 const handleClick = (tab, event) => {
   console.log(tab, event)
 }
@@ -74,10 +72,10 @@ const handleClick = (tab, event) => {
     padding: 0 20px;
     box-sizing: border-box;
 
-    ::v-deep .el-tabs__header {
+    :deep(.el-tabs__header) {
       line-height: 55px;
     }
-    ::v-deep .el-tabs__item {
+    :deep(.el-tabs__item) {
       font-size: 16px;
     }
   }

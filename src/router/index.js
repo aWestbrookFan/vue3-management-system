@@ -17,6 +17,7 @@ const routes = [
     path: '/Home',
     name: 'Home',
     component: Layout,
+    redirect: 'dashboard',
     children: [
       {
         path: '/dashboard',
@@ -25,6 +26,14 @@ const routes = [
           title: '系统首页'
         },
         component: () => import('@/views/subViews/Dashboard.vue')
+      },
+      {
+        path: '/basictable',
+        name: 'basictable',
+        meta: {
+          title: '基础表格'
+        },
+        component: () => import('@/views/subViews/BasicTable.vue')
       }
     ]
   }
@@ -37,7 +46,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const type = to.path
-  if (type === '/') {
+  if (type === '/dashboard') {
     if (localStorage.getItem('user')) {
       next()
     } else {

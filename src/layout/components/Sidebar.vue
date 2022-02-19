@@ -15,8 +15,8 @@
       :default-active="onRoutes"
       background-color="#red"
       :collapse="isCollapse"
-      text-color="#bfcbd9"
-      active-text-color="#20a0ff"
+      text-color="#bbb"
+      active-text-color="#fff"
       unique-opened
       router
     >
@@ -46,7 +46,7 @@
         </template>
         <template v-else>
           <el-menu-item :index="item.index" :key="item.index">
-            <iconfont :icon-name="item.icon"></iconfont>
+            <iconfont :icon-name="item.icon" :iconColor="changeIconActive(item.index)"></iconfont>
             <template #title>{{ item.title }}</template>
           </el-menu-item>
         </template>
@@ -68,12 +68,12 @@ const items = [
     icon: 'icon-homePage',
     index: '/dashboard',
     title: '系统首页'
+  },
+  {
+    icon: 'icon-basicTable',
+    index: '/basictable',
+    title: '基础表格'
   }
-  // {
-  //   icon: 'el-icon-lx-cascades',
-  //   index: '/table',
-  //   title: '基础表格'
-  // },
   // {
   //   icon: 'el-icon-lx-copy',
   //   index: '/tabs',
@@ -156,6 +156,13 @@ const handleChangeIscollapse = () => {
 const toggleSideBar = (val) => {
   isCollapse.value = val
 }
+
+const changeIconActive = (item) => {
+  if (item === route.path) {
+    return '#fff'
+  }
+  return '#bbb'
+}
 </script>
 
 <style lang="scss" scoped>
@@ -187,7 +194,7 @@ const toggleSideBar = (val) => {
       box-sizing: border-box;
     }
     .opcity-enter-active {
-      animation: opacity-change 0.6s;
+      animation: opacity-change 2s;
     }
     .opcity-leave-active {
       animation: opacity-change 0.2s reverse;

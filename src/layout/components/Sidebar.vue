@@ -46,12 +46,14 @@
         </template>
         <template v-else>
           <el-menu-item :index="item.index" :key="item.index">
-            <iconfont icon-name="icon-jishufuwu"></iconfont>
+            <iconfont :icon-name="item.icon"></iconfont>
             <template #title>{{ item.title }}</template>
           </el-menu-item>
         </template>
       </template>
     </el-menu>
+    <!-- 右侧开关切换 -->
+    <ToggleBar @toggleSideBar="toggleSideBar" :isCollapse="isCollapse" />
   </div>
 </template>
 
@@ -59,10 +61,11 @@
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import iconfont from '@/components/iconfont/index.vue'
+import ToggleBar from '@/layout/components/ToggleBar.vue'
 
 const items = [
   {
-    icon: 'el-icon-lx-home',
+    icon: 'icon-homePage',
     index: '/dashboard',
     title: '系统首页'
   }
@@ -149,11 +152,18 @@ const isCollapse = ref(false)
 const handleChangeIscollapse = () => {
   isCollapse.value = !isCollapse.value
 }
+
+const toggleSideBar = (val) => {
+  isCollapse.value = val
+}
 </script>
 
 <style lang="scss" scoped>
 .sidebar {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
   > ul {
     height: 100%;
   }
@@ -164,8 +174,8 @@ const handleChangeIscollapse = () => {
     align-items: center;
     justify-content: center;
     line-height: 50px;
-    overflow: hidden;
     white-space: nowrap;
+    cursor: pointer;
 
     img {
       border-radius: 4px;
@@ -177,7 +187,7 @@ const handleChangeIscollapse = () => {
       box-sizing: border-box;
     }
     .opcity-enter-active {
-      animation: opacity-change 0.2s;
+      animation: opacity-change 0.6s;
     }
     .opcity-leave-active {
       animation: opacity-change 0.2s reverse;

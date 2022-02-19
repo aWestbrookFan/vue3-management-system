@@ -1,8 +1,14 @@
 <template>
   <div class="sidebar animate__animated animate__backInLeft">
-    <div class="manage-logo" @click="handleChangeIscollapse">
+    <div
+      class="manage-logo"
+      @click="handleChangeIscollapse"
+      :style="{ width: isCollapse ? 'auto' : '200px' }"
+    >
       <img src="@/assets/logo.png" />
-      <h3 v-if="!isCollapse">&emsp;ls管理系统&emsp;</h3>
+      <transition name="opcity">
+        <h3 v-show="!isCollapse">ls管理系统</h3>
+      </transition>
     </div>
     <el-menu
       class="sidebar-el-menu"
@@ -165,7 +171,27 @@ const handleChangeIscollapse = () => {
       border-radius: 4px;
       width: auto;
       height: 32px;
-      // margin-right: 10px;
+    }
+    h3 {
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .opcity-enter-active {
+      animation: opacity-change 0.2s;
+    }
+    .opcity-leave-active {
+      animation: opacity-change 0.2s reverse;
+    }
+    @keyframes opacity-change {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
   .sidebar-el-menu {
@@ -173,6 +199,9 @@ const handleChangeIscollapse = () => {
     :deep(.el-menu-item:hover) {
       background-color: var(--el-menu-hover-custom-bg-color);
     }
+  }
+  .el-menu {
+    border-right: none;
   }
   .sidebar-el-menu:not(.el-menu--collapse) {
     width: 200px;

@@ -1,4 +1,4 @@
-# Vue3+Vite+elementPlus+mockJs+pinia （javaScript）
+# Vue3+Vite+elementPlus+mockJs+pinia+Scss （javaScript）
 
 
 ##  运行

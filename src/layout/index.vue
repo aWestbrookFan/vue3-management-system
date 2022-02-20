@@ -4,6 +4,8 @@
     <div class="main-container">
       <!-- 顶部导航 -->
       <Navbar></Navbar>
+      <!-- tags标签 -->
+      <Tags></Tags>
       <!-- 内容区域 -->
       <AppMain></AppMain>
     </div>
@@ -14,6 +16,7 @@
 import AppMain from './components/AppMain.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
+import Tags from './components/Tags.vue'
 // import { useStore } from '@/store'
 // const store = useStore()
 </script>

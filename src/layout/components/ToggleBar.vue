@@ -14,7 +14,7 @@ const props = defineProps({
   }
 })
 const handleToggleSideBar = () => {
-  emit('toggleSideBar', !props.isCollapse)
+  emit('toggleSideBar', '')
 }
 </script>
 

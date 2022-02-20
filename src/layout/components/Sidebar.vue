@@ -53,7 +53,7 @@
       </template>
     </el-menu>
     <!-- 右侧开关切换 -->
-    <ToggleBar @toggleSideBar="toggleSideBar" :isCollapse="isCollapse" />
+    <ToggleBar @toggleSideBar="handleChangeIscollapse" :isCollapse="isCollapse" />
   </div>
 </template>
 
@@ -153,15 +153,11 @@ const handleChangeIscollapse = () => {
   isCollapse.value = !isCollapse.value
 }
 
-const toggleSideBar = (val) => {
-  isCollapse.value = val
-}
-
 const changeIconActive = (item) => {
   if (item === route.path) {
-    return '#fff'
+    return 'fff'
   }
-  return '#bbb'
+  return 'bbb'
 }
 </script>
 

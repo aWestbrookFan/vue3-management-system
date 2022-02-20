@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="statistics-card">
-      <div>statistics-card1</div>
+      <div class="sc-1">statistics-card1</div>
       <div>statistics-card2</div>
       <div>statistics-card3</div>
       <div>statistics-card4</div>

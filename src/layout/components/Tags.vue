@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-container" v-if="showTags">
+  <div class="tags-container animate__animated animate__fadeInRightBig">
     <div class="tag-cover-div">
       <li
         class="tags-li"
@@ -41,8 +41,6 @@ const isActive = (path) => {
 
 const store = useStore()
 const tagsList = computed(() => store.tagsList)
-
-const showTags = computed(() => tagsList.value.length > 0)
 
 // 关闭单个标签
 const closeTags = (index) => {

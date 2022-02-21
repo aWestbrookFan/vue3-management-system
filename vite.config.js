@@ -10,5 +10,10 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
-  plugins: [vue(), viteMockServe({ supportTs: false })]
+  plugins: [vue(), viteMockServe({ supportTs: false })],
+  server: {
+    open: true,
+    port: 3005,
+    host: '0.0.0.0'
+  }
 })

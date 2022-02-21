@@ -4,17 +4,14 @@
 
 <script setup>
 import { getUser } from '@/api/basicTable.js'
-
-async function aa() {
+;(async function () {
   try {
     const res = await getUser()
     console.log(res)
   } catch (error) {
     console.log(error)
   }
-}
-
-aa()
+})()
 </script>
 
 <style lang="scss" scoped>

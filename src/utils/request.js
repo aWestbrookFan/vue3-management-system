@@ -1,7 +1,6 @@
 // 配置 request
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-console.log(import.meta.env)
 const service = axios.create({
   baseURL: import.meta.env.VITE_BASE_API,
   timeout: 5000

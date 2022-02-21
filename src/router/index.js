@@ -34,6 +34,24 @@ const routes = [
           title: '基础表格'
         },
         component: () => import('@/views/subViews/BasicTable.vue')
+      },
+      {
+        path: '/404',
+        name: '404',
+        meta: {
+          title: '404页面'
+        },
+        component: () =>
+          import(/* webpackChunkName: "404" */ '@/views/subViews/404.vue')
+      },
+      {
+        path: '/403',
+        name: '403',
+        meta: {
+          title: '403页面'
+        },
+        component: () =>
+          import(/* webpackChunkName: "404" */ '@/views/subViews/403.vue')
       }
     ]
   }
@@ -45,7 +63,11 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  // 跳转404
   const type = to.path
+  if (router.getRoutes().findIndex(item => item.path === type) === -1) {
+    next('/404')
+  }
   if (type === '/dashboard') {
     if (localStorage.getItem('user')) {
       next()

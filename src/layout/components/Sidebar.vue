@@ -24,7 +24,7 @@
         <template v-if="item.subs">
           <el-sub-menu :index="item.index" :key="item.index">
             <template #title>
-              <i :class="item.icon"></i>
+              <iconfont :icon-name="item.icon" :iconColor="changeIconActive(item.index)"></iconfont>
               <span>{{ item.title }}</span>
             </template>
             <template v-for="subItem in item.subs">
@@ -73,6 +73,21 @@ const items = [
     icon: 'icon-basicTable',
     index: '/basictable',
     title: '基础表格'
+  },
+  {
+    icon: 'icon-warning',
+    index: '11',
+    title: '错误处理',
+    subs: [
+      {
+        index: '/404',
+        title: '404页面'
+      },
+      {
+        index: '/403',
+        title: '403页面'
+      }
+    ]
   }
   // {
   //   icon: 'el-icon-lx-copy',
@@ -167,6 +182,8 @@ const changeIconActive = (item) => {
   display: flex;
   flex-direction: column;
   z-index: 2;
+  --el-menu-hover-custom-bg-color: #012344;
+
   > ul {
     height: 100%;
   }
@@ -208,10 +225,12 @@ const changeIconActive = (item) => {
     }
   }
   .sidebar-el-menu {
-    --el-menu-hover-custom-bg-color: #012344;
     :deep(.el-menu-item:hover) {
       background-color: var(--el-menu-hover-custom-bg-color);
     }
+  }
+  :deep(.el-sub-menu__title:hover) {
+    background-color: var(--el-menu-hover-custom-bg-color);
   }
   .el-menu {
     border-right: none;

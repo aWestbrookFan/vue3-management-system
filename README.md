@@ -25,7 +25,11 @@ opacity: 0;
 transform: scale(1.03);
 }
 ```
-### 使用iconfont自定义图标
+### [vite环境变量](https://cn.vitejs.dev/guide/env-and-mode.html)
+```javascript
+baseURL: import.meta.env.VITE_BASE_API
+```
+### 使用iconfont symbol
 ### [pinia地址](https://pinia.vuejs.org/introduction.html#basic-example) 
 ### 可以作为一些vue3学习的测试、简单的demo
 ### 做了一些保存自动化的操作、更方便开发

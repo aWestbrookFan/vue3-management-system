@@ -187,6 +187,13 @@ const changeIconActive = (item) => {
   > ul {
     height: 100%;
   }
+  .el-menu-item,
+  .el-sub-menu {
+    border-bottom: 0.5px dashed rgb(2, 112, 223);
+  }
+  :deep(.el-sub-menu .el-sub-menu__title) {
+    border-bottom: 0.5px dashed rgb(2, 112, 223);
+  }
   .manage-logo {
     height: 50px;
     color: white;
@@ -235,6 +242,7 @@ const changeIconActive = (item) => {
   .el-menu {
     border-right: none;
   }
+
   .sidebar-el-menu:not(.el-menu--collapse) {
     width: 200px;
   }

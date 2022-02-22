@@ -90,8 +90,8 @@ const handleClick = (tab, event) => {
 
 <style lang="scss" scoped>
 .dashboard-container {
-  padding: 0 10px;
-  box-sizing: border-box;
+  // padding: 0 10px;
+  // box-sizing: border-box;
   .statistics-card {
     display: grid;
     height: 200px;

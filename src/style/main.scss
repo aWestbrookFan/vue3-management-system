@@ -20,4 +20,13 @@
   position: relative;
   overflow: hidden;
   background-color: #f5f7f9;
+  > div {
+    &:not(.dashboard-container) {
+      padding: 0 10px;
+      box-sizing: border-box;
+      height: inherit;
+      background-color: #fff;
+      background-clip: content-box;
+    }
+  }
 }

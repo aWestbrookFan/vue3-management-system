@@ -36,6 +36,28 @@ html {
   color: #2c3e50;
 }
 
+::-webkit-scrollbar{
+  width: 6px;
+  height: 6px
+}
+
+::-webkit-scrollbar-button{
+display: none;
+
+}
+
+::-webkit-scrollbar-track{
+background: transparent;
+
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 3px;
+  background: #8e91ad
+}
+ 
+
+
 // 组件切换动画
 .zoom-fade-enter-active,
 .zoom-fade-leave-active {

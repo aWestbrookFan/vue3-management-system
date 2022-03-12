@@ -66,13 +66,25 @@ import ToggleBar from '@/layout/components/ToggleBar.vue'
 const items = [
   {
     icon: 'icon-homePage',
-    index: '/dashboard',
-    title: '系统首页'
+    index: '1',
+    title: '系统首页',
+    subs: [
+      {
+        index: '/dashboard',
+        title: '系统首页'
+      }
+    ]
   },
   {
     icon: 'icon-basicTable',
-    index: '/basictable',
-    title: '基础表格'
+    index: '2',
+    title: '基础表格',
+    subs: [
+      {
+        index: '/basictable',
+        title: '基础表格'
+      }
+    ]
   },
   {
     icon: 'icon-warning',
@@ -241,6 +253,9 @@ const changeIconActive = (item) => {
   }
   .el-menu {
     border-right: none;
+  }
+  :deep(.el-sub-menu .el-menu-item) {
+    padding-left: 55px;
   }
 
   .sidebar-el-menu:not(.el-menu--collapse) {

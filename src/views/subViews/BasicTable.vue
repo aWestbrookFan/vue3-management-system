@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { getUser } from '@/api/basicTable.js'
+import { getBasicTableUser } from '@/api/basicTable.js'
 import { reactive } from 'vue'
 
 const tableData = reactive([])
@@ -32,7 +32,7 @@ const handleEdit = () => {
 
 const getUserInfo = async () => {
   try {
-    const res = await getUser()
+    const res = await getBasicTableUser()
     tableData.push(...res.data)
   } catch (error) {
     console.log(error)

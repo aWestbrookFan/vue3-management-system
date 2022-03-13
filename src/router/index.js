@@ -25,7 +25,7 @@ const routes = [
         meta: {
           title: '系统首页'
         },
-        component: () => import('@/views/subViews/Dashboard.vue')
+        component: () => import('@/views/SubViews/Dashboard.vue')
       },
       {
         path: '/basictable',
@@ -33,7 +33,7 @@ const routes = [
         meta: {
           title: '基础表格'
         },
-        component: () => import('@/views/subViews/BasicTable.vue')
+        component: () => import('@/views/SubViews/BasicTable.vue')
       },
       {
         path: '/404',
@@ -42,7 +42,7 @@ const routes = [
           title: '404页面'
         },
         component: () =>
-          import(/* webpackChunkName: "404" */ '@/views/subViews/404.vue')
+          import(/* webpackChunkName: "404" */ '@/views/SubViews/404.vue')
       },
       {
         path: '/403',
@@ -51,7 +51,7 @@ const routes = [
           title: '403页面'
         },
         component: () =>
-          import(/* webpackChunkName: "404" */ '@/views/subViews/403.vue')
+          import(/* webpackChunkName: "404" */ '@/views/SubViews/403.vue')
       }
     ]
   }
@@ -63,16 +63,17 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // 跳转404
   const type = to.path
+  // 跳转404
   if (router.getRoutes().findIndex(item => item.path === type) === -1) {
     next('/404')
   }
   if (type === '/dashboard') {
-    if (localStorage.getItem('user')) {
+    const user = localStorage.getItem('user')
+    if (user) {
       next()
     } else {
-      next('/login')
+      next('/Login')
     }
   } else {
     next()

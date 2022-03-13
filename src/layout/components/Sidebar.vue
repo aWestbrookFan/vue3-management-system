@@ -21,7 +21,7 @@
       router
     >
       <template v-for="item in items">
-        <template v-if="item.subs">
+        <template v-if="item.subs && item.access.includes(userRole.role)">
           <el-sub-menu :index="item.index" :key="item.index">
             <template #title>
               <iconfont :icon-name="item.icon" :iconColor="changeIconActive(item.index)"></iconfont>
@@ -44,12 +44,12 @@
             </template>
           </el-sub-menu>
         </template>
-        <template v-else>
+        <!-- <template v-else>
           <el-menu-item :index="item.index" :key="item.index">
             <iconfont :icon-name="item.icon" :iconColor="changeIconActive(item.index)"></iconfont>
             <template #title>{{ item.title }}</template>
           </el-menu-item>
-        </template>
+        </template> -->
       </template>
     </el-menu>
     <!-- 右侧开关切换 -->
@@ -68,6 +68,7 @@ const items = [
     icon: 'icon-homePage',
     index: '1',
     title: '系统首页',
+    access: 'admin,guest',
     subs: [
       {
         index: '/dashboard',
@@ -79,6 +80,7 @@ const items = [
     icon: 'icon-basicTable',
     index: '2',
     title: '基础表格',
+    access: 'admin',
     subs: [
       {
         index: '/basictable',
@@ -90,6 +92,7 @@ const items = [
     icon: 'icon-warning',
     index: '11',
     title: '错误处理',
+    access: 'admin',
     subs: [
       {
         index: '/404',
@@ -101,71 +104,6 @@ const items = [
       }
     ]
   }
-  // {
-  //   icon: 'el-icon-lx-copy',
-  //   index: '/tabs',
-  //   title: 'tab选项卡'
-  // }
-  // {
-  //   icon: 'el-icon-lx-calendar',
-  //   index: '3',
-  //   title: '表单相关',
-  //   subs: [
-  //     {
-  //       index: '/form',
-  //       title: '基本表单'
-  //     },
-  //     {
-  //       index: '/upload',
-  //       title: '文件上传'
-  //     },
-  //     {
-  //       index: '4',
-  //       title: '三级菜单',
-  //       subs: [
-  //         {
-  //           index: '/editor',
-  //           title: '富文本编辑器'
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // },
-  // {
-  //   icon: 'el-icon-lx-emoji',
-  //   index: '/icon',
-  //   title: '自定义图标'
-  // },
-  // {
-  //   icon: 'el-icon-pie-chart',
-  //   index: '/charts',
-  //   title: 'schart图表'
-  // },
-  // {
-  //   icon: 'el-icon-lx-global',
-  //   index: '/i18n',
-  //   title: '国际化功能'
-  // },
-  // {
-  //   icon: 'el-icon-lx-warn',
-  //   index: '7',
-  //   title: '错误处理',
-  //   subs: [
-  //     {
-  //       index: '/permission',
-  //       title: '权限测试'
-  //     },
-  //     {
-  //       index: '/404',
-  //       title: '404页面'
-  //     }
-  //   ]
-  // },
-  // {
-  //   icon: 'el-icon-lx-redpacket_fill',
-  //   index: '/donate',
-  //   title: '支持作者'
-  // }
 ]
 
 const route = useRoute()
@@ -186,6 +124,8 @@ const changeIconActive = (item) => {
   }
   return 'bbb'
 }
+
+const userRole = JSON.parse(localStorage.getItem('user'))
 </script>
 
 <style lang="scss" scoped>

@@ -22,6 +22,7 @@
 <script setup>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import { login } from '../api/login'
 const router = useRouter()
 
 const formVar = reactive({
@@ -29,18 +30,16 @@ const formVar = reactive({
   password: '123456'
 })
 
-const mockUserList = [
-  { username: 'admin', password: '123456' },
-  { username: 'admin1', password: '123456' },
-  { username: 'admin2', password: '123456' }
-]
-const handleLogin = () => {
-  const user = mockUserList.find(
-    (ele) => ele.username === formVar.username && ele.password === formVar.password
-  )
-  if (!user) return
-  localStorage.setItem('user', JSON.stringify(formVar))
-  router.push({ name: 'Home' })
+const handleLogin = async () => {
+  try {
+    const res = await login(formVar)
+    if (res.currentUser) {
+      localStorage.setItem('user', JSON.stringify(res.userInfo))
+      router.push({ name: 'Home' })
+    }
+  } catch (error) {
+    console.log(error)
+  }
 }
 </script>
 

@@ -1,14 +1,10 @@
 import request from '../utils/request'
 
-export const fetchData = query => {
+//  Mock.js获取用户测试信息
+export function getBasicTableUser(query) {
   return request({
-    url: '/getUser',
+    url: '/getBasicTableUser',
     method: 'get',
     params: query
   })
-}
-
-//  Mock.js获取用户测试信息
-export function getUser(query) {
-  return fetchData(query)
 }

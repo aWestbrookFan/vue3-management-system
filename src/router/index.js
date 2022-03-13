@@ -10,6 +10,7 @@ const routes = [
   },
   {
     path: '/Login',
+    name: 'Login',
     component: () => import('@/views/Login.vue'),
     meta: { title: '登录', icon: 'el-icon-s-home' }
   },

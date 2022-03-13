@@ -13,7 +13,7 @@
         <iconfont icon-name="icon-fullscreen-expand" iconColor="000"></iconfont>
       </div>
       <div>
-        <iconfont icon-name="icon-setting1" iconColor="000"></iconfont>
+        <iconfont icon-name="icon-setting1" iconColor="000" @click="loginOut"></iconfont>
       </div>
     </div>
   </div>
@@ -21,6 +21,12 @@
 
 <script setup>
 import iconfont from '@/components/iconfont/index.vue'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const loginOut = () => {
+  localStorage.removeItem('user')
+  router.push({ name: 'Login' })
+}
 </script>
 
 <style lang="scss" scoped>

@@ -166,7 +166,7 @@ const userRole = JSON.parse(localStorage.getItem('user'))
       box-sizing: border-box;
     }
     .opcity-enter-active {
-      animation: opacity-change 2s;
+      animation: opacity-change 1s;
     }
     .opcity-leave-active {
       animation: opacity-change 0.2s reverse;

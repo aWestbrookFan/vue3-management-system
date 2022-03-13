@@ -1,5 +1,9 @@
 <template>
   <div class="baiscTable-container" style="padding: 0 10px">
+    <div class="bc-data-filter">
+      <el-input v-model="nameSearch" placeholder="姓名搜索" class="search-item"></el-input>
+      <el-button type="primary">查询</el-button>
+    </div>
     <el-table :data="tableData" style="width: 100%" class="bc-table">
       <el-table-column fixed prop="date" label="时间" />
       <el-table-column prop="name" label="姓名" width="120" />
@@ -19,9 +23,11 @@
 
 <script setup>
 import { getBasicTableUser } from '@/api/basicTable.js'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 const tableData = reactive([])
+
+const nameSearch = ref('')
 
 const handleClick = () => {
   console.log('click')
@@ -46,8 +52,19 @@ getUserInfo()
 .baiscTable-container {
   box-sizing: border-box;
 
+  .bc-data-filter {
+    padding: 20px 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+
+    .search-item {
+      width: 15%;
+    }
+  }
+
   .bc-table {
-    height: 90%;
+    height: calc(100% - 80px);
     overflow-y: scroll;
   }
 }

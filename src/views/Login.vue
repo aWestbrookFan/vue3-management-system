@@ -23,6 +23,7 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { login } from '../api/login'
+import { ElMessage } from 'element-plus'
 const router = useRouter()
 
 const formVar = reactive({
@@ -36,7 +37,12 @@ const handleLogin = async () => {
     if (res.currentUser) {
       localStorage.setItem('user', JSON.stringify(res.userInfo))
       router.push({ name: 'Home' })
+      return
     }
+    ElMessage({
+      type: 'info',
+      message: '请联系管理员添加用户信息'
+    })
   } catch (error) {
     console.log(error)
   }
